@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+.m-header {
+    background-color: #7f81bf;
+}
+
+.m-h1,
+.m-p-header {
+    color: white;
+    margin: 0 auto;
+}
+
+.m-btn {
+    width: 250px;
+    height: 50px;
+    border: none;
+    background: #F1C40F;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.m-item {
+    width: 90%;
+    padding: 20px 20px 30px 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 10%);
+}
+
+.m-img-div {
+    margin: 0 auto;
+}
