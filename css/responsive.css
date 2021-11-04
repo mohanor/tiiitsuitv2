@@ -1,0 +1,91 @@
+@media only screen and (min-width: 600px) {
+    
+  }
+
+  @media (min-width: 768px) {
+  .col-md-6 {
+      height: 231px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+    header {
+        padding-top: 30px;
+    }
+    .header-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 25px;
+        align-items: center;
+    }
+
+    .header-description h1 {
+        font-size: 50px;
+    }
+
+    .header-p {
+        font-size: 25px;
+    }
+
+    .m-w {
+        width: 58%!important;
+    }
+
+    .toggle-menu {
+        display: none;
+    }
+
+    .div-of-logo {
+        width: 300px;
+    }
+
+    .header-nav {
+        list-style-type: none;
+        display: flex;
+    }
+
+    .header-nav a{
+        color: white;
+        font-size: 21px;
+        text-decoration: none;
+        padding: 0 20px;
+    }
+
+    .how-we-are {
+        width: 60%;
+        margin: 0 auto;
+        font-size: 23px;
+        margin-bottom: 36px !important;
+    }
+
+    .how-we-are p {
+        line-height: 2.2 !important;
+    }
+
+    footer {
+        padding: 4.5rem !important;
+        padding-bottom: 0 !important;
+    }
+
+    footer ul li {
+        margin-bottom: 18px;
+    }
+
+    .logo-dis {
+        display: flex;
+        justify-content: center;
+    }
+
+    .w-dis {
+        width: 30% !important;
+    }
+
+    .row-dis {
+        justify-content: center;
+    }
+
+    .div-item:not(:first-of-type) {
+        margin-top: 30px;
+    }
+}

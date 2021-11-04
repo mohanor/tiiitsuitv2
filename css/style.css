@@ -6,6 +6,7 @@
 
 .m-header {
     background-color: #7f81bf;
+    height: 100vh;
 }
 
 .m-h1,
@@ -29,11 +30,18 @@
 }
 
 .m-item {
-    width: 90%;
-    padding: 20px 20px 30px 20px;
+    /* width: 90%; */
+    height: 100%;
+    padding: 30px 20px;
     background-color: #FFFFFF;
     border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 10%);
+}
+
+.m-item-service {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .m-img-div {
@@ -99,13 +107,14 @@
 }
 
 footer {
-    background-color: #7f81bf;
+    background-color: #1A202C;
     color: white;
 }
 
 footer a {
     color: white;
     text-decoration: none;
+    font-size: 15px;
 }
 
 footer ul {
@@ -122,4 +131,8 @@ footer ul li {
 
 .div-item h4 {
     margin-bottom: 25px;
+}
+
+svg {
+    fill: #7f81bf;
 }
