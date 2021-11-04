@@ -6,7 +6,19 @@
 
 .m-header {
     background-color: #7f81bf;
-    height: 100vh;
+}
+
+.toggle-menu {
+    display: block;
+    fill: white !important;
+}
+
+header {
+    padding-top: 30px;
+}
+
+.header-nav {
+    display: none;
 }
 
 .m-h1,
@@ -109,6 +121,7 @@
 footer {
     background-color: #1A202C;
     color: white;
+    padding: 30px 0 15px;
 }
 
 footer a {

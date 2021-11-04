@@ -88,4 +88,8 @@
     .div-item:not(:first-of-type) {
         margin-top: 30px;
     }
+
+    .m-header {
+        height: 100vh;
+    }
 }
