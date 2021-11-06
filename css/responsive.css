@@ -89,7 +89,93 @@
         margin-top: 30px;
     }
 
-    .m-header {
-        height: 100vh;
+    .arrow {
+        background-color: #ffffff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all .5s;
+        z-index: 9;
+    }
+
+    .arrow:hover {
+        background-color: #7f81bf;
+    }
+
+    .prev {
+        left: 50px;
+    }
+
+    .prev:hover svg {
+        fill: white;
+    }
+
+    .next {
+        right: 50px;
+    }
+
+    .next:hover svg {
+        fill: white;
+    }
+
+    .my-slick {
+        width: 1140px;
+        margin: 0 auto;
+    }
+
+    .what-say {
+        background-color: white;
+        width: 600px;
+        padding: 60px;
+        height: 280px;
+        margin: 0 auto;
+        border: 1px solid #000000;
+        box-shadow: 0px 4px 4px 0px #00000040 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .m-avatr {
+        width: 50px;
+        height: 50px;
+    }
+
+    .what-say .svg {
+        height: 20px;
+    }
+
+    .item-of-slick {
+        padding: 3rem;
+    }
+
+    .div-desk-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .desk-flex {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
+    .info-client {
+        text-align: right;
+        margin-right: 15px;
+    }
+
+    .p-text {
+        text-align: right;
+    }
+
+    .what-say p {
+        font-size: 16px;
     }
 }
