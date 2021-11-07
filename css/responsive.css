@@ -53,7 +53,6 @@
     }
 
     .how-we-are {
-        width: 60%;
         margin: 0 auto;
         font-size: 23px;
         margin-bottom: 36px !important;
@@ -178,4 +177,50 @@
     .what-say p {
         font-size: 16px;
     }
+
+    .list-of-arrows {
+        display: block;
+    }
+
+    .row-rev {
+        text-align: right !important;
+    }
+
+    .desc-about-how {
+        color: rgb(102, 102, 102);
+        margin-bottom: 20px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .first-h3-after::after {
+        width: 54px;
+        margin: 7px 0;
+    }
+
+    .setction-of-how-we-are {
+        align-items: center;
+    }
+
+    .setction-of-how-we-are .col-lg-6 {
+        width: 49% !important;
+    }
+
+    .img-fl {
+        width: 97%;
+    }
+
+    .row-rev {
+        flex-direction: row-reverse;
+    }
+
+    .mg-b {
+        margin-bottom: 0;
+        height: 361px;
+    }
+
+    .arrow-list {
+        display: block;
+    }
+
 }

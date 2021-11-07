@@ -150,3 +150,62 @@ footer ul li {
 svg {
     fill: #7f81bf;
 }
+
+.what-say .svg {
+    height: 20px;
+}
+
+.svg-block {
+    justify-content: center
+}
+
+.list-of-arrows {
+    display: none;
+}
+
+.text-muted {
+    color: #868e96!important;
+}
+
+.img-fl {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.row-rev {
+    flex-direction: column-reverse;
+}
+
+.mg-b {
+    margin-bottom: 20px;
+}
+
+.contact-div {
+    background-color: #7f81bf;
+}
+
+.call-btn {
+    justify-content: center;
+}
+
+.fol,
+.text-fol {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+
+.fol {
+    height: 40px;
+}
+
+.arrow-list {
+    display: none;
+}
+
+.div-desk-flex .d-flex {
+    justify-content: center;
+}

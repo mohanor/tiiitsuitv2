@@ -58,20 +58,25 @@
     </header>
 
     <main class="container">
-        <section class="text-center py-5">
-            <div class="mb-4">
-                <h3 class="h3-after fs-1">من نحن</h3>
+        <section class="text-center py-5 row row-rev setction-of-how-we-are">
+            <div class="col-md-12 col-lg-6">
+                <div class="mb-4">
+                    <h3 class="h3-after fs-1 first-h3-after">من نحن</h3>
+                </div>
+                <div class="mb-3 how-we-are">
+                    <p class="lh-lg desc-about-how">
+                        فريق متحمس متعدد الثقافات والتخصصات. اجتمعنا معاً لنقدم لك حلولاً تسويقية تنافسية تساعدك على بناء
+                        علامتك التجارية. شغفنا التسويق وتطوير الشركات الصغيرة ليكون لديك شخصية قوية لعلامتك التجارية. نستمتع
+                        بتقديم استراتيجيات جديدة للتسويق عبر مواقع التواصل الاجتماعي وتوليد العملاء المحتملين، بالإضافة إلى
+                        تطوير تجربة المستخدم مع نشاطك التجاري.
+                    </p>
+                </div>
+                <div>
+                    <button class="m-btn">قراءة المزيد</button>
+                </div>
             </div>
-            <div class="mb-3 how-we-are">
-                <p class="lh-lg">
-                    فريق متحمس متعدد الثقافات والتخصصات. اجتمعنا معاً لنقدم لك حلولاً تسويقية تنافسية تساعدك على بناء
-                    علامتك التجارية. شغفنا التسويق وتطوير الشركات الصغيرة ليكون لديك شخصية قوية لعلامتك التجارية. نستمتع
-                    بتقديم استراتيجيات جديدة للتسويق عبر مواقع التواصل الاجتماعي وتوليد العملاء المحتملين، بالإضافة إلى
-                    تطوير تجربة المستخدم مع نشاطك التجاري.
-                </p>
-            </div>
-            <div>
-                <button class="m-btn">قراءة المزيد</button>
+            <div class="col-md-12 col-lg-6 mg-b">
+                <img src="https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  class="img-fl" alt="">
             </div>
         </section>
 
@@ -228,7 +233,7 @@
                             </svg>
                         </div>
                         <h4>الخبرة</h4>
-                        <p>
+                        <p class="text-muted">
                             جميع أعمالنا يشرف عليها خبراء في مجال الأعمال
                         </p>
                     </div>
@@ -254,7 +259,7 @@
                             <!-- <img src="./media/maintenance-icon.png" class="img-fluid" alt=""> -->
                         </div>
                         <h4>الجودة</h4>
-                        <p>
+                        <p class="text-muted">
                             يتم تنفيذ جميع الخدمات بكل دقة واحترافية وبأعلى جودة ممكنة
                         </p>
                     </div>
@@ -279,7 +284,7 @@
                             </svg>
                         </div>
                         <h4>الأمان</h4>
-                        <p>
+                        <p class="text-muted">
                             ملتزمون بأعلى معايير الأمان والخصوصية وسرية المعلومات
                         </p>
                     </div>
@@ -334,7 +339,7 @@
                             </svg>
                         </div>
                         <h4>الإنجاز</h4>
-                        <p>
+                        <p class="text-muted">
                             يتم تقديم الخدمات خلال مدة عمل واضحة وسريعة
                         </p>
                     </div>
@@ -361,7 +366,7 @@
                             </svg>
                         </div>
                         <h4>المسؤولية</h4>
-                        <p>
+                        <p class="text-muted">
                             نتعهد لعملائنا ببذل كل الجهد وتوضيح كافة الالتزامات وترتيبها وجدولتها
                         </p>
                     </div>
@@ -402,7 +407,7 @@
                             </svg>
                         </div>
                         <h4>التطوير</h4>
-                        <p>
+                        <p class="text-muted">
                             نقدم جميع الحلول لخدمات المنشآت ونقترح الأفضل
                         </p>
                     </div>
@@ -410,13 +415,13 @@
             </div>
         </section>
     </main>
-    <section class="slick-section py-3">
+    <section class="slick-section py-5">
         <div class="mb-4 text-center">
             <h3 class="h3-after fs-1">شهادات العملاء</h3>
         </div>
 
         <div class="position-relative">
-            <ul>
+            <ul class="arrow-list">
                 <li class="arrow prev">
                     <svg width="12" height="15" viewBox="0 0 7 10" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -491,6 +496,41 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="contact-section container py-5">
+        <div class="mb-4 text-center">
+            <h3 class="h3-after fs-1">اتصال بنا</h3>
+        </div>
+       
+        <div class="contact-div p-5">
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mb-5">
+                        <input type="text" class="fol" placeholder="الإ سم">
+                    </div>
+                    <div class="col-sm-12 col-lg-6 mb-5">
+                        <input type="text" class="fol" placeholder="موضوع">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 mb-5">
+                        <input type="text" class="fol" placeholder="بريد الالكتروني">
+                    </div>
+                    <div class="col-sm-12 col-lg-6 mb-5">
+                        <input type="text" class="fol" placeholder="الهاتف">
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div>
+                        <textarea name="" id="" cols="30" rows="5" class="text-fol" placeholder="الرسالة"></textarea>
+                    </div>
+                </div>
+                <div class="row call-btn">
+                    <button type="submit" class="m-btn">اتصال</button>
+                </div>
+            </form>
         </div>
     </section>
 
