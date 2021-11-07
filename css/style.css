@@ -209,3 +209,16 @@ svg {
 .div-desk-flex .d-flex {
     justify-content: center;
 }
+
+.header-nav a::after{
+    content: "";
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    height: 2px;
+    background-color: transparent;
+}
+
+.header-nav a:hover::after{
+    background-color: white;
+}

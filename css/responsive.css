@@ -49,9 +49,11 @@
         color: white;
         font-size: 21px;
         text-decoration: none;
-        padding: 0 20px;
     }
 
+    .header-nav li {
+        padding: 0 20px;
+    }
     .how-we-are {
         margin: 0 auto;
         font-size: 23px;
