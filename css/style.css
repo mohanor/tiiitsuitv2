@@ -222,3 +222,46 @@ svg {
 .header-nav a:hover::after{
     background-color: white;
 }
+
+.our-project .row > div {
+    text-align: center;
+}
+
+.our-project-img {
+    height: 200px;
+    width: 100%;
+    background: url(http://www.sam-coding.com/static/518ddfdb8bf2d1d168331ffb4a055227/e4d72/02-full.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 18px;
+}
+
+.our-project-img h4 {
+    font-weight: 700 !important;
+}
+
+.fl-row {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.our-project-img div {
+    height: 100%;
+    width: 100%;
+    background-color: #7f81bf;
+    display: grid;
+    place-content: center;
+    opacity: 0;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.our-project-img div:hover {
+    opacity: 1;
+}

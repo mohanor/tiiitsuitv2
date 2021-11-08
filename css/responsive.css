@@ -225,4 +225,11 @@
         display: block;
     }
 
+    .fl-row {
+        flex-direction: row;
+    }
+
+    .our-project-img {
+        width: 350px;
+    }
 }
