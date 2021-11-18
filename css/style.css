@@ -3,20 +3,25 @@
     margin: 0;
     font-family: 'Cairo', sans-serif;
 }
-
+/*
 .m-header {
     background-color: #7f81bf;
-}
+    background-image: url(../media/cover.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}*/
 
 .toggle-menu {
     display: block;
     fill: white !important;
 }
-
+/*
 header {
     padding-top: 30px;
 }
-
+*/
 .header-nav {
     display: none;
 }
@@ -24,12 +29,40 @@ header {
 .m-h1,
 .m-p-header {
     color: white;
-    margin: 0 auto;
+}
+
+.resp-w {
+    width: 60%;
+}
+
+.m-nav {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    z-index: 9;
+    transform: translateX(-50%);
+}
+
+.m-h1 {
+    font-size: min(14vw, 100px);
+    /*height: 62px;*/
+}
+
+.m-h1::after {
+    content: "";
+    background-color: #ffffff;
+    height: 2px;
+    width: 10%;
+    display: block;
+    margin: 5px auto;
 }
 
 .header-row {
     margin-right: 0 !important;
     margin-left: 0 !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .m-btn {
     width: 100%;
@@ -63,6 +96,7 @@ header {
 .header-p {
     font-size: 14px;
     line-height: 2;
+    text-align: right;
 }
 
 .h3-after::after {
@@ -104,6 +138,7 @@ header {
 
 .slick-section {
     background-color: #edf2f7;
+    overflow: hidden;
     /* background-color: #E5E5E5; */
 }
 
