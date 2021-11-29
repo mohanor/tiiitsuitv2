@@ -300,3 +300,51 @@ svg {
 .our-project-img div:hover {
     opacity: 1;
 }
+
+
+.mobile-menu {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: 999;
+    overflow: hidden;
+    display: none;
+}
+.mobile-list{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mobile-list ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+.mobile-list li {
+    padding: 15px 0;
+}
+
+.mobile-list a {
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+}
+
+.media-div {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.media {
+    list-style-type: none;
+}
+
+.media li {
+    padding: 0 10px;
+}
