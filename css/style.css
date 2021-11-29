@@ -322,6 +322,7 @@ svg {
 .mobile-list ul {
     list-style-type: none;
     text-align: center;
+    padding: 0;
 }
 
 .mobile-list li {
@@ -343,6 +344,7 @@ svg {
 
 .media {
     list-style-type: none;
+    padding: 0;
 }
 
 .media li {

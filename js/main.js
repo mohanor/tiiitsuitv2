@@ -193,6 +193,25 @@ const close = document.getElementById("close");
 menu.addEventListener('click', () => {
     body.style.overflow = "hidden";
     document.getElementById("mobile-menu").style.display= "block"
+    gsap.from(".mobile-item", {duration: 1, opacity:0, delay: .5})
+    gsap.to(".mobile-item", {duration: 1, opacity:1, delay: .5})
+    gsap.from(".mobile-item", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
+
+    gsap.from(".media-item", {duration: 1, opacity:0, delay: .5})
+    gsap.to(".media-item", {duration: 1, opacity:1, delay: .5})
+    gsap.from(".media-item", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
+
+    gsap.from("#close", {duration: 1, opacity:0, delay: .5})
+    gsap.to("#close", {duration: 1, opacity:1, delay: .5})
+    gsap.from("#close", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
+
+    gsap.from(".logo-mobile", {duration: 1, opacity:0, delay: .5})
+    gsap.to(".logo-mobile", {duration: 1, opacity:1, delay: .5})
+    gsap.from(".logo-mobile", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
+
+    gsap.from(".mobile-menu", {duration: 1, opacity:0, delay: .2})
+    gsap.to(".mobile-menu", {duration: 1, opacity:1, delay: .2})
+    
 })
 
 close.addEventListener('click', () => {
