@@ -1,5 +1,10 @@
+var cols;
 
-const cols = 3;
+if (window.innerWidth < 768 )
+    cols = 2;
+else
+    cols = 3;
+
 const main = document.getElementById('main');
 let parts = [];
 
@@ -209,7 +214,7 @@ menu.addEventListener('click', () => {
     gsap.to(".logo-mobile", {duration: 1, opacity:1, delay: .5})
     gsap.from(".logo-mobile", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
 
-    gsap.from(".mobile-menu", {duration: 1, opacity:0, delay: .2})
+    gsap.from(".mobile-menu", {duration: 1, opacity:0, delay: .1})
     gsap.to(".mobile-menu", {duration: 1, opacity:1, delay: .2})
     
 })
