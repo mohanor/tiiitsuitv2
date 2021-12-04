@@ -1,7 +1,7 @@
 var cols;
 
 if (window.innerWidth < 768 )
-    cols = 2;
+    cols = 1;
 else
     cols = 3;
 
@@ -43,7 +43,7 @@ for (let col = 0; col < cols; col++) {
 }
 
 let animOptions = {
-    duration: 1,
+    duration: 2.3,
     ease: Power4.easeInOut
 };
 
