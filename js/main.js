@@ -43,7 +43,7 @@ for (let col = 0; col < cols; col++) {
 }
 
 let animOptions = {
-    duration: 2.3,
+    duration: 1,
     ease: Power4.easeInOut
 };
 
@@ -79,9 +79,9 @@ function go(dir) {
             img.src = images[current];
             if (index > 3) index = 0;
             if (index < 0) index = 3;
-            gsap.from("#p-content", {duration: 1, opacity:0, delay: 2})
-            document.getElementById('p-content').innerHTML = par[index];
-            gsap.to("#p-content", {duration: 1, opacity:1, delay: 2})
+            //gsap.from("#p-content", {duration: 1, opacity:0, delay: 2})
+            //document.getElementById('p-content').innerHTML = par[index];
+            //gsap.to("#p-content", {duration: 1, opacity:1, delay: 2})
             if (dir == -1) index--;
             else index++;
             next.appendChild(img);
