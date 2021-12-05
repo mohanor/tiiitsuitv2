@@ -94,8 +94,6 @@ else if (['ArrowLeft'].includes(e.key)) {
 });
 */
 
-
-
       var $slider = $('.slideshow .slider'),
         maxItems = $('.item', $slider).length,
         dragging = false,
@@ -114,12 +112,14 @@ else if (['ArrowLeft'].includes(e.key)) {
     $slider.addClass('slideshow-left');
     $('.slideshow-left').slick({
         vertical: true,
+        swipe: false,
         verticalSwiping: true,
         arrows: false,
         infinite: true,
         dots: true,
         speed: 1000,
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+
     }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
         if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
             $('.slideshow-right .slider').slick('slickGoTo', -1);
@@ -138,32 +138,32 @@ else if (['ArrowLeft'].includes(e.key)) {
         rightTracking = $('.slideshow-right .slick-track').css('transform');
         rightTracking = parseInt(rightTracking.split(',')[5]);
     }).on('mousemove touchmove', function(){
-    if (dragging) {
-        newTracking = $('.slideshow-left .slick-track').css('transform');
-        newTracking = parseInt(newTracking.split(',')[5]);
-        diffTracking = newTracking - tracking;
-        $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
-    }
+        if (dragging) {
+            newTracking = $('.slideshow-left .slick-track').css('transform');
+            newTracking = parseInt(newTracking.split(',')[5]);
+            diffTracking = newTracking - tracking;
+            $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
+        }
     }).on('mouseleave touchend mouseup', function(){
         dragging = false;
     });
 
     $('.slideshow-right .slider').slick({
-        swipe: false,
-        vertical: true,
-        arrows: false,
-        infinite: true,
-        speed: 950,
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-        initialSlide: maxItems - 1
+            swipe: false,
+            vertical: true,
+            arrows: false,
+            infinite: true,
+            speed: 950,
+            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+            initialSlide: maxItems - 1
         });
-        $('.slideshow-text').slick({
-        swipe: false,
-        vertical: true,
-        arrows: false,
-        infinite: true,
-        speed: 900,
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+    $('.slideshow-text').slick({
+            swipe: false,
+            vertical: true,
+            arrows: false,
+            infinite: true,
+            speed: 900,
+            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
     });
 
 
@@ -235,36 +235,3 @@ function mouseup(e) {
         endY = null;
     }
 }
-
-
-document.getElementsByClassName('next').addEventListener('mousedown', mousedown, false);
-
-document.getElementsByClassName('prev').addEventListener('mouseup', mouseup, false);
-/*
-let scrollTimeout;
-function wheel(e) {
-    clearTimeout(scrollTimeout);
-    setTimeout(function() {
-    if (e.deltaY < -40) {
-    go(-1);
-    }
-    else if (e.deltaY >= 40) {
-    go(1);
-    }
-    })
-}*/
-
-
-const menu = document.getElementById("menu");
-const body = document.getElementById("body");
-const close = document.getElementById("close");
-
-menu.addEventListener('click', () => {
-    body.style.overflow = "hidden";
-    document.getElementById("mobile-menu").style.display= "block"
-})
-
-close.addEventListener('click', () => {
-    body.style.overflow = "auto";
-    document.getElementById("mobile-menu").style.display= "none"
-})
