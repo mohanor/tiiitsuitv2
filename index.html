@@ -19,8 +19,6 @@
 </head>
 
 <body id="body">
-
-    
     <div class="mobile-menu" id="menu">
         <div class="d-flex justify-content-between align-items-center flex-row-reverse">
             <div class="div-of-logo">
@@ -65,7 +63,7 @@
     </div>
 
     <header class="split-slideshow">
-        <div class="header-div">
+        <div class="header-div" id="menu-princibale">
             <div>
                 <img src="./media/logo.png" class="logo" alt=".">
             </div>
@@ -695,6 +693,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/header.js" defer></script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const getMenu = document.getElementById('menu-princibale');
+
+            getMenu.classList.toggle("scroll-menu2", window.scrollY >= 47)
+        })
+    </script>
 </body>
 
 </html>

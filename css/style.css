@@ -27,7 +27,7 @@ header {
 }
 
 .header-div {
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     width: 100%;
     display: flex;
@@ -35,8 +35,18 @@ header {
     align-items: center;
     flex-direction: row-reverse;
     padding: 20px 40px;
+    transition: all 1s ease;
 }
 
+.scroll-menu2 {
+    position: fixed;
+    background: white;
+    box-shadow: 0 2px 4px -2px rgb(175 175 175 / 50%);
+}
+
+.scroll-menu2 a {
+    color: black !important;
+}
 .menu-and-media {
     display: flex;
     justify-content: space-between;
@@ -61,6 +71,7 @@ header {
 
 .nav-list {
     display: flex;
+    margin-bottom: 0;
 }
 
 .svg-open {

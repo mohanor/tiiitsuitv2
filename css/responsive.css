@@ -16,8 +16,9 @@
   }
   .header-div {
       flex-direction: row;
-      padding: 42px 40px 20px 40px;
+      padding: 15px 40px 15px 40px;
       align-items: center;
+     
   }
 
   .nav-list {
