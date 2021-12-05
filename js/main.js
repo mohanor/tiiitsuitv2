@@ -1,9 +1,4 @@
-var cols;
-
-if (window.innerWidth < 768 )
-    cols = 1;
-else
-    cols = 3;
+/*const cols = 3;
 
 const main = document.getElementById('main');
 let parts = [];
@@ -46,7 +41,7 @@ let animOptions = {
     duration: 2.3,
     ease: Power4.easeInOut
 };
-
+const tl = gsap.timeline();
 function go(dir) {
     if (!playing) {
         playing = true;
@@ -77,13 +72,6 @@ function go(dir) {
             next.className = 'section';
             let img = document.createElement('img');
             img.src = images[current];
-            if (index > 3) index = 0;
-            if (index < 0) index = 3;
-            //gsap.from("#p-content", {duration: 1, opacity:0, delay: 2})
-            //document.getElementById('p-content').innerHTML = par[index];
-            //gsap.to("#p-content", {duration: 1, opacity:1, delay: 2})
-            if (dir == -1) index--;
-            else index++;
             next.appendChild(img);
 
             if ((p - Math.max(0, dir)) % 2) {
@@ -104,6 +92,80 @@ else if (['ArrowLeft'].includes(e.key)) {
     go(-1);
     }
 });
+*/
+
+
+
+      var $slider = $('.slideshow .slider'),
+        maxItems = $('.item', $slider).length,
+        dragging = false,
+        tracking,
+        rightTracking;
+
+        $sliderRight = $('.slideshow').clone().addClass('slideshow-right').appendTo($('.split-slideshow'));
+
+        rightItems = $('.item', $sliderRight).toArray();
+        reverseItems = rightItems.reverse();
+        $('.slider', $sliderRight).html('');
+        for (i = 0; i < maxItems; i++) {
+            $(reverseItems[i]).appendTo($('.slider', $sliderRight));
+        }
+
+    $slider.addClass('slideshow-left');
+    $('.slideshow-left').slick({
+        vertical: true,
+        verticalSwiping: true,
+        arrows: false,
+        infinite: true,
+        dots: true,
+        speed: 1000,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+    }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
+            $('.slideshow-right .slider').slick('slickGoTo', -1);
+            $('.slideshow-text').slick('slickGoTo', maxItems);
+        } else if (currentSlide < nextSlide && currentSlide == 0 && nextSlide == maxItems - 1) {
+            $('.slideshow-right .slider').slick('slickGoTo', maxItems);
+            $('.slideshow-text').slick('slickGoTo', -1);
+        } else {
+            $('.slideshow-right .slider').slick('slickGoTo', maxItems - 1 - nextSlide);
+            $('.slideshow-text').slick('slickGoTo', nextSlide);
+        }
+    }).on('mousedown touchstart', function(){
+        dragging = true;
+        tracking = $('.slick-track', $slider).css('transform');
+        tracking = parseInt(tracking.split(',')[5]);
+        rightTracking = $('.slideshow-right .slick-track').css('transform');
+        rightTracking = parseInt(rightTracking.split(',')[5]);
+    }).on('mousemove touchmove', function(){
+    if (dragging) {
+        newTracking = $('.slideshow-left .slick-track').css('transform');
+        newTracking = parseInt(newTracking.split(',')[5]);
+        diffTracking = newTracking - tracking;
+        $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
+    }
+    }).on('mouseleave touchend mouseup', function(){
+        dragging = false;
+    });
+
+    $('.slideshow-right .slider').slick({
+        swipe: false,
+        vertical: true,
+        arrows: false,
+        infinite: true,
+        speed: 950,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        initialSlide: maxItems - 1
+        });
+        $('.slideshow-text').slick({
+        swipe: false,
+        vertical: true,
+        arrows: false,
+        infinite: true,
+        speed: 900,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+    });
+
 
 function lerp(start, end, amount) {
     return (1-amount)*start+amount*end
@@ -173,10 +235,12 @@ function mouseup(e) {
         endY = null;
     }
 }
-window.addEventListener('mousedown', mousedown, false);
 
-window.addEventListener('mouseup', mouseup, false);
 
+document.getElementsByClassName('next').addEventListener('mousedown', mousedown, false);
+
+document.getElementsByClassName('prev').addEventListener('mouseup', mouseup, false);
+/*
 let scrollTimeout;
 function wheel(e) {
     clearTimeout(scrollTimeout);
@@ -188,7 +252,7 @@ function wheel(e) {
     go(1);
     }
     })
-}
+}*/
 
 
 const menu = document.getElementById("menu");
@@ -198,25 +262,6 @@ const close = document.getElementById("close");
 menu.addEventListener('click', () => {
     body.style.overflow = "hidden";
     document.getElementById("mobile-menu").style.display= "block"
-    gsap.from(".mobile-item", {duration: 1, opacity:0, delay: .5})
-    gsap.to(".mobile-item", {duration: 1, opacity:1, delay: .5})
-    gsap.from(".mobile-item", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
-
-    gsap.from(".media-item", {duration: 1, opacity:0, delay: .5})
-    gsap.to(".media-item", {duration: 1, opacity:1, delay: .5})
-    gsap.from(".media-item", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
-
-    gsap.from("#close", {duration: 1, opacity:0, delay: .5})
-    gsap.to("#close", {duration: 1, opacity:1, delay: .5})
-    gsap.from("#close", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
-
-    gsap.from(".logo-mobile", {duration: 1, opacity:0, delay: .5})
-    gsap.to(".logo-mobile", {duration: 1, opacity:1, delay: .5})
-    gsap.from(".logo-mobile", {duration: 1, y: '100%', delay: .3, ease: 'power2.out'})
-
-    gsap.from(".mobile-menu", {duration: 1, opacity:0, delay: .1})
-    gsap.to(".mobile-menu", {duration: 1, opacity:1, delay: .2})
-    
 })
 
 close.addEventListener('click', () => {

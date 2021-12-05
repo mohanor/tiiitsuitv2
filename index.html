@@ -12,151 +12,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/slick.css" />
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css">
-    <script src="./js/main.js" defer></script>
     <style>
-        html,
         body {
-            padding: 0;
-            margin: 0;
+            overflow-x: hidden;
         }
-        * {
-            box-sizing: border-box;
-            outline: none;
-            -webkit-tap-highlight-color: transparent;
-            cursor: none;
-            user-select: none;
-            -webkit-user-drag: none;
-        }
-        #main {
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-            flex-direction: row-reverse;
-        }
-        #main .part {
-        flex: 1;
-        }
-        #main .part .section {
-            width: 100%;
-            height: 100vh;
+
+        header {
             position: relative;
+            display: block;
+            height: 100vh;
             overflow: hidden;
         }
-        #main .part .section img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+
+        .slideshow {
             position: absolute;
-            left: var(--x);
-            pointer-events: none;
-        }
-        .cursor {
-            width: var(--size);
-            height: var(--size);
-            border-radius: 50%;
-            background: white;
-            position: fixed;
-            z-index: 999;
-            pointer-events: none;
-            mix-blend-mode: difference;
-        }
-        .cursor-f {
-            width: var(--size);
-            height: var(--size);
-            position: fixed;
+            z-index: 1;
             top: 0;
             left: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='47' height='47' viewBox='0 0 47 47' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M42.4202 42.4202C38.8403 46 33.3594 46 23.5 46C13.6406 46 8.15966 46 4.57983 42.4202C1 38.8403 1 33.3594 1 23.5C1 13.6406 1 8.15966 4.57983 4.57983C8.15966 1 13.6406 1 23.5 1C33.3594 1 38.8403 1 42.4202 4.57983C46 8.15966 46 13.6406 46 23.5C46 33.3594 46 38.8403 42.4202 42.4202Z' stroke='white'/%3E%3C/svg%3E%0A");
-            background-size: cover;
-            mix-blend-mode: difference;
-            pointer-events: none;
-            opacity: 0.5;
-            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
         }
-        .buttons {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 99;
+        .slideshow .slider {
+            width: 100vw;
+            /*height: 100vw;*/
+            z-index: 2;
         }
-        .buttons button {
+        .slideshow .slider * {
+            outline: none;
+        }
+        .slideshow .slider .item {
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            overflow: hidden;
             border: none;
-            background-size: contain;
-            background: url("data:image/svg+xml,%3Csvg width='10' height='29' viewBox='0 0 10 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0V27L1 17.4857' stroke='white' stroke-width='2' /%3E%3C/svg%3E%0A") no-repeat;
-            background-position: center;
-            width: 10px;
-            height: 30px;
-            display: block;
-            margin: 20px 0;
-            padding: 0 15px;
-            transition-duration: 0.6s;
         }
-        .buttons button.next {
-            transform: scaleY(-1);
+        .slideshow .slider .item .text {
+            display: none;
         }
-        .buttons button.prev:active {
-            transform: translateY(8px);
-        }
-        .buttons button.next:active {
-            transform: scaleY(-1) translateY(8px);
-        }
-        h1 {
-            transform: translateY(-50%);
-            pointer-events: none;
-        }
-        .content {
-            width: 65%;
-            line-height: 2;
-            position: absolute;
-            bottom: -24px;
-
-            /*width: 90%;
-            position: absolute;
-            bottom: 20px;*/
-            text-align: center;
-            left: 0;
-            right: 0;
-            margin: auto;
-            color: white;
-            z-index: 99;
-            font-size: 0.8em;
-            font-size: 20px;
-        }
-        .content p {
-            margin: 0.5em auto;
-        }
-        .content kbd {
-            width: 15px;
-            height: 15px;
-            border: 1px solid white;
-            display: inline-block;
-            border-radius: 3px;
-            font-size: 0.9em;
-            vertical-align: text-top;
-        }
-        .content a {
-            color: rgba(227, 227, 227, 0.78);
-            text-decoration: none;
-            border-bottom: 1px solid currentColor;
-        }
-        .content a:hover {
-            padding-bottom: 1px;
-        }
-
-        .main__content {
+        .slideshow .slider .item img {
+            min-width: 100%;
+            min-height: 100%;
             position: absolute;
             top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        .slideshow .slick-dots {
+           position: absolute;
+            z-index: 100;
+            width: 40px;
+            height: 30px;
+            bottom: auto;
+            top: 50%;
+            right: 20px;
             transform: translateY(-50%);
-            left: 0;
-            right: 0;
-            margin: auto;
-            z-index: 99;
-            color: white;
+            left: auto;
+            color: #fff;
+            display: block;
+        }
+        .slideshow .slick-dots li {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .slideshow .slick-dots li button {
+            position: relative;
+            width: 20px;
+            height: 15px;
             text-align: center;
-            height: 180px;
+        }
+        .slideshow .slick-dots li button:before {
+            content: "";
+            background: #fff;
+            color: #fff;
+            height: 2px;
+            width: 20px;
+            border-radius: 0;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: auto;
+            transform: translateY(-50%);
+            transition: all 0.3s ease-in-out;
+            opacity: 0.6;
+        }
+        .slideshow .slick-dots li.slick-active button:before {
+            width: 40px;
+            opacity: 1;
+        }
+        .slideshow.slideshow-right {
+            left: 0;
+            z-index: 1;
+            width: 50vw;
+            pointer-events: none;
+        }
+        .slideshow.slideshow-right .slider {
+            left: 0;
+            position: absolute;
+        }
+
+        .slideshow-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            font-size: max(20px, 4vw);
+            width: 100vw;
+            text-align: center;
+            color: #fff;
+            font-weight: 100;
+            pointer-events: none;
+            text-transform: uppercase;
+           
+            
+        }
+        
+
+        .the-most {
+            position: fixed;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            width: 50vw;
+            max-width: 200px;
+            padding: 10px;
+        }
+        .the-most img {
+            max-width: 100%;
         }
     </style>
 </head>
@@ -247,41 +238,39 @@
             </ul>
         </div>
     </div>
-    <header class="m-header">
-        <nav class="m-nav d-flex container justify-content-between">
-            <div class="div-of-logo">
-                <img src="./media/logo.png" class="w-50 m-w" alt="">
-            </div>
-            <div class="parent-of-nav">
-                <svg class="kadence-svg-icon kadence-menu2-svg toggle-menu" fill="white" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28" id="menu">
-                    <title>Toggle Menu</title>
-                    <path
-                        d="M24 21v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 13v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1zM24 5v2c0 0.547-0.453 1-1 1h-22c-0.547 0-1-0.453-1-1v-2c0-0.547 0.453-1 1-1h22c0.547 0 1 0.453 1 1z">
-                    </path>
-                </svg>
 
-                <ul class="header-nav">
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#">من نحن</a></li>
-                    <li><a href="#">خدماتنا</a></li>
-                    <li><a href="https://tiiitsuit.com/" target="_blank">المدونة</a></li>
-                    <li><a href="#">الاتصال بنا</a></li>
+    <header class="split-slideshow">
+        <div>
+            <div>
+
+            </div>
+            <div>
+                <ul>
+                    <li>item</li>
+                    <li>item</li>
+                    <li>item</li>
+                    <li>item</li>
+                    <li>item</li>
                 </ul>
             </div>
-        </nav>
-    
-        <div id="main">
-            <div class="main__content">
-                <h1 class="m-h1">تيييت سويت</h1>
-                <div class="content" id="header-conrent">
-                    <p class="p-content" id="p-content">مرحبا بك في موقع تيييت سويت, موقع يهتم بشرح مستجدات الذكاء الإصطناعي و آخر تقنيات التحول الرقمي</p>
+        </div>
+        <div class="slideshow">
+            <div class="slider">
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+                </div>
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/368685/pexels-photo-368685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+                </div>
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2672&q=80" />
                 </div>
             </div>
-            <div class="buttons">
-                <button class="next" onclick="go(-1)"></button>
-                <button class="prev" onclick="go(1)"></button>
-            </div>
+        </div>
+        <div class="slideshow-text">
+            <div class="item">دفع العملاء إلى باب منزلك</div>
+            <div class="item">امنح منتجك الحياة</div>
+            <div class="item">الوكالة الرقمية</div>
         </div>
     </header>
 
@@ -853,10 +842,14 @@
             </div>
         </div>
     </footer>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script type="text/javascript" src="./js/slick.min.js"></script>
     <script src="./js/ownslick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

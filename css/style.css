@@ -45,10 +45,16 @@ header {
 
 .m-h1 {
     font-size: min(14vw, 100px);
+    margin-bottom:  0 !important;
     /*height: 62px;*/
 }
 
-.m-h1::after {
+.m-h1-div {
+    transform: translateY(5px);
+    overflow: hidden;
+}
+
+.m-div::after {
     content: "";
     background-color: #ffffff;
     height: 2px;
@@ -349,4 +355,8 @@ svg {
 
 .media li {
     padding: 0 10px;
+}
+
+.content {
+    overflow: hidden;
 }

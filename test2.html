@@ -144,30 +144,30 @@ html {
     </style>
 </head>
 <body>
-    <div class="split-slideshow">
+    <header class="split-slideshow">
         <div class="slideshow">
-        <div class="slider">
-            <div class="item">
-            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-2.jpg" />
+            <div class="slider">
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+                </div>
+                <div class="item">
+                    <img src="https://images.pexels.com/photos/368685/pexels-photo-368685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
+                </div>
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2048&q=80" />
+                </div>
+                <div class="item">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2672&q=80" />
+                </div>
             </div>
-            <div class="item">
-            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-3.jpg" />
-            </div>
-            <div class="item">
-            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-4.jpg" />
-            </div>
-            <div class="item">
-            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-1.jpg" />
-            </div>
-        </div>
         </div>
         <div class="slideshow-text">
-        <div class="item">Canyon</div>
-        <div class="item">Desert</div>
-        <div class="item">Erosion</div>
-        <div class="item">Shape</div>
+            <div class="item">Canyon</div>
+            <div class="item">Desert</div>
+            <div class="item">Erosion</div>
+            <div class="item">Shape</div>
         </div>
-    </div>
+    </header>
   
   <a class="the-most" target="_blank" href="https://codepen.io/2017/popular/pens/10/">
     <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/themost-2017.png">
@@ -178,84 +178,81 @@ html {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
   <script>
       var $slider = $('.slideshow .slider'),
-  maxItems = $('.item', $slider).length,
-  dragging = false,
-  tracking,
-  rightTracking;
+        maxItems = $('.item', $slider).length,
+        dragging = false,
+        tracking,
+        rightTracking;
 
-$sliderRight = $('.slideshow').clone().addClass('slideshow-right').appendTo($('.split-slideshow'));
+        $sliderRight = $('.slideshow').clone().addClass('slideshow-right').appendTo($('.split-slideshow'));
 
-rightItems = $('.item', $sliderRight).toArray();
-reverseItems = rightItems.reverse();
-$('.slider', $sliderRight).html('');
-for (i = 0; i < maxItems; i++) {
-  $(reverseItems[i]).appendTo($('.slider', $sliderRight));
-}
+        rightItems = $('.item', $sliderRight).toArray();
+        reverseItems = rightItems.reverse();
+        $('.slider', $sliderRight).html('');
+        for (i = 0; i < maxItems; i++) {
+            $(reverseItems[i]).appendTo($('.slider', $sliderRight));
+        }
 
-$slider.addClass('slideshow-left');
-$('.slideshow-left').slick({
-  vertical: true,
-  verticalSwiping: true,
-  arrows: false,
-  infinite: true,
-  dots: true,
-  speed: 1000,
-  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
-}).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    $slider.addClass('slideshow-left');
+    $('.slideshow-left').slick({
+        vertical: true,
+        verticalSwiping: true,
+        arrows: false,
+        infinite: true,
+        dots: true,
+        speed: 1000,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+    }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
+            $('.slideshow-right .slider').slick('slickGoTo', -1);
+            $('.slideshow-text').slick('slickGoTo', maxItems);
+        } else if (currentSlide < nextSlide && currentSlide == 0 && nextSlide == maxItems - 1) {
+            $('.slideshow-right .slider').slick('slickGoTo', maxItems);
+            $('.slideshow-text').slick('slickGoTo', -1);
+        } else {
+            $('.slideshow-right .slider').slick('slickGoTo', maxItems - 1 - nextSlide);
+            $('.slideshow-text').slick('slickGoTo', nextSlide);
+        }
+    }).on("mousewheel", function(event) {
+        event.preventDefault();
+        if (event.deltaX > 0 || event.deltaY < 0) {
+            $(this).slick('slickNext');
+        } else if (event.deltaX < 0 || event.deltaY > 0) {
+            $(this).slick('slickPrev');
+        };
+    }).on('mousedown touchstart', function(){
+        dragging = true;
+        tracking = $('.slick-track', $slider).css('transform');
+        tracking = parseInt(tracking.split(',')[5]);
+        rightTracking = $('.slideshow-right .slick-track').css('transform');
+        rightTracking = parseInt(rightTracking.split(',')[5]);
+    }).on('mousemove touchmove', function(){
+    if (dragging) {
+        newTracking = $('.slideshow-left .slick-track').css('transform');
+        newTracking = parseInt(newTracking.split(',')[5]);
+        diffTracking = newTracking - tracking;
+        $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
+    }
+    }).on('mouseleave touchend mouseup', function(){
+        dragging = false;
+    });
 
-  if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
-    $('.slideshow-right .slider').slick('slickGoTo', -1);
-    $('.slideshow-text').slick('slickGoTo', maxItems);
-  } else if (currentSlide < nextSlide && currentSlide == 0 && nextSlide == maxItems - 1) {
-    $('.slideshow-right .slider').slick('slickGoTo', maxItems);
-    $('.slideshow-text').slick('slickGoTo', -1);
-  } else {
-    $('.slideshow-right .slider').slick('slickGoTo', maxItems - 1 - nextSlide);
-    $('.slideshow-text').slick('slickGoTo', nextSlide);
-  }
-}).on("mousewheel", function(event) {
-  event.preventDefault();
-  if (event.deltaX > 0 || event.deltaY < 0) {
-    $(this).slick('slickNext');
-  } else if (event.deltaX < 0 || event.deltaY > 0) {
-    $(this).slick('slickPrev');
-  };
-}).on('mousedown touchstart', function(){
-  dragging = true;
-  tracking = $('.slick-track', $slider).css('transform');
-  tracking = parseInt(tracking.split(',')[5]);
-  rightTracking = $('.slideshow-right .slick-track').css('transform');
-  rightTracking = parseInt(rightTracking.split(',')[5]);
-}).on('mousemove touchmove', function(){
-  if (dragging) {
-    newTracking = $('.slideshow-left .slick-track').css('transform');
-    newTracking = parseInt(newTracking.split(',')[5]);
-    diffTracking = newTracking - tracking;
-    $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
-  }
-}).on('mouseleave touchend mouseup', function(){
-  dragging = false;
-});
-
-$('.slideshow-right .slider').slick({
-  swipe: false,
-  vertical: true,
-  arrows: false,
-  infinite: true,
-  speed: 950,
-  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-  initialSlide: maxItems - 1
-});
-$('.slideshow-text').slick({
-  swipe: false,
-  vertical: true,
-  arrows: false,
-  infinite: true,
-  speed: 900,
-  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
-});
-
-
+    $('.slideshow-right .slider').slick({
+        swipe: false,
+        vertical: true,
+        arrows: false,
+        infinite: true,
+        speed: 950,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        initialSlide: maxItems - 1
+        });
+        $('.slideshow-text').slick({
+        swipe: false,
+        vertical: true,
+        arrows: false,
+        infinite: true,
+        speed: 900,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+    });
   </script>
 </body>
 </html>
