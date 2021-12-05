@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:100">
+    <style>
+        body,
+html {
+  height: 100%;
+  background: #110101;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+.slideshow {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.slideshow .slider {
+  width: 100vw;
+  height: 100vw;
+  z-index: 2;
+}
+.slideshow .slider * {
+  outline: none;
+}
+.slideshow .slider .item {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+.slideshow .slider .item .text {
+  display: none;
+}
+.slideshow .slider .item img {
+  min-width: 101%;
+  min-height: 101%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slideshow .slick-dots {
+  position: fixed;
+  z-index: 100;
+  width: 40px;
+  height: auto;
+  bottom: auto;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  left: auto;
+  color: #fff;
+  display: block;
+}
+.slideshow .slick-dots li {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.slideshow .slick-dots li button {
+  position: relative;
+  width: 20px;
+  height: 15px;
+  text-align: center;
+}
+.slideshow .slick-dots li button:before {
+  content: "";
+  background: #fff;
+  color: #fff;
+  height: 2px;
+  width: 20px;
+  border-radius: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: auto;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+  opacity: 0.6;
+}
+.slideshow .slick-dots li.slick-active button:before {
+  width: 40px;
+  opacity: 1;
+}
+.slideshow.slideshow-right {
+  left: 0;
+  z-index: 1;
+  width: 50vw;
+  pointer-events: none;
+}
+.slideshow.slideshow-right .slider {
+  left: 0;
+  position: absolute;
+}
+
+.slideshow-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 80px;
+  width: 100vw;
+  text-align: center;
+  color: #fff;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 100;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+  line-height: 0.8;
+}
+@media (max-width: 767px) {
+  .slideshow-text {
+    font-size: 40px;
+  }
+}
+
+.the-most {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 50vw;
+  max-width: 200px;
+  padding: 10px;
+}
+.the-most img {
+  max-width: 100%;
+}
+    </style>
+</head>
+<body>
+    <div class="split-slideshow">
+        <div class="slideshow">
+        <div class="slider">
+            <div class="item">
+            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-2.jpg" />
+            </div>
+            <div class="item">
+            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-3.jpg" />
+            </div>
+            <div class="item">
+            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-4.jpg" />
+            </div>
+            <div class="item">
+            <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/canyon-1.jpg" />
+            </div>
+        </div>
+        </div>
+        <div class="slideshow-text">
+        <div class="item">Canyon</div>
+        <div class="item">Desert</div>
+        <div class="item">Erosion</div>
+        <div class="item">Shape</div>
+        </div>
+    </div>
+  
+  <a class="the-most" target="_blank" href="https://codepen.io/2017/popular/pens/10/">
+    <img src="https://raw.githubusercontent.com/supahfunk/supah-codepen/master/themost-2017.png">
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+  <script>
+      var $slider = $('.slideshow .slider'),
+  maxItems = $('.item', $slider).length,
+  dragging = false,
+  tracking,
+  rightTracking;
+
+$sliderRight = $('.slideshow').clone().addClass('slideshow-right').appendTo($('.split-slideshow'));
+
+rightItems = $('.item', $sliderRight).toArray();
+reverseItems = rightItems.reverse();
+$('.slider', $sliderRight).html('');
+for (i = 0; i < maxItems; i++) {
+  $(reverseItems[i]).appendTo($('.slider', $sliderRight));
+}
+
+$slider.addClass('slideshow-left');
+$('.slideshow-left').slick({
+  vertical: true,
+  verticalSwiping: true,
+  arrows: false,
+  infinite: true,
+  dots: true,
+  speed: 1000,
+  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+}).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+
+  if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
+    $('.slideshow-right .slider').slick('slickGoTo', -1);
+    $('.slideshow-text').slick('slickGoTo', maxItems);
+  } else if (currentSlide < nextSlide && currentSlide == 0 && nextSlide == maxItems - 1) {
+    $('.slideshow-right .slider').slick('slickGoTo', maxItems);
+    $('.slideshow-text').slick('slickGoTo', -1);
+  } else {
+    $('.slideshow-right .slider').slick('slickGoTo', maxItems - 1 - nextSlide);
+    $('.slideshow-text').slick('slickGoTo', nextSlide);
+  }
+}).on("mousewheel", function(event) {
+  event.preventDefault();
+  if (event.deltaX > 0 || event.deltaY < 0) {
+    $(this).slick('slickNext');
+  } else if (event.deltaX < 0 || event.deltaY > 0) {
+    $(this).slick('slickPrev');
+  };
+}).on('mousedown touchstart', function(){
+  dragging = true;
+  tracking = $('.slick-track', $slider).css('transform');
+  tracking = parseInt(tracking.split(',')[5]);
+  rightTracking = $('.slideshow-right .slick-track').css('transform');
+  rightTracking = parseInt(rightTracking.split(',')[5]);
+}).on('mousemove touchmove', function(){
+  if (dragging) {
+    newTracking = $('.slideshow-left .slick-track').css('transform');
+    newTracking = parseInt(newTracking.split(',')[5]);
+    diffTracking = newTracking - tracking;
+    $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
+  }
+}).on('mouseleave touchend mouseup', function(){
+  dragging = false;
+});
+
+$('.slideshow-right .slider').slick({
+  swipe: false,
+  vertical: true,
+  arrows: false,
+  infinite: true,
+  speed: 950,
+  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+  initialSlide: maxItems - 1
+});
+$('.slideshow-text').slick({
+  swipe: false,
+  vertical: true,
+  arrows: false,
+  infinite: true,
+  speed: 900,
+  cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+});
+
+
+  </script>
+</body>
+</html>
