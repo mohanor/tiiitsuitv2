@@ -214,9 +214,9 @@ for (let col = 0; col < cols; col++) {
 
 let animOptions = {
     duration: 2.3,
-    ease: Power4.easeInOut
+    ease: Power4.easeIn
 };
-const tl = gsap.timeline();
+
 function go(dir) {
     if (!playing) {
         playing = true;
@@ -234,7 +234,7 @@ function go(dir) {
 
         function down(part, next) {
             part.prepend(next);
-            gsap.to(part, {duration: 0, y: -window.innerHeight});
+            gsap.to(part, {duration: 0, y: - window.innerHeight});
             gsap.to(part, {...animOptions, y: 0}).then(function () {
                 part.children[1].remove();
                 playing = false;
