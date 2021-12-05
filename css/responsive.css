@@ -58,6 +58,10 @@
   .nav-list-item {
     position: relative;
   }
+
+  .contact-div {
+    padding: 3rem !important;
+  }
 }
 
 @media only screen and (min-width: 992px) {
