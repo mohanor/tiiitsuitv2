@@ -6,6 +6,57 @@
   .col-md-6 {
       height: 231px;
   }
+
+  .open-div {
+      display: none;
+  }
+
+  .logo {
+    width: 200px;
+  }
+  .header-div {
+      flex-direction: row;
+      padding: 42px 40px 20px 40px;
+      align-items: center;
+  }
+
+  .nav-list {
+      list-style-type: none;
+  }
+
+  .nav-list-item {
+        padding: 0 25px;
+  }
+
+  .nav-list-item a {
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+  }
+
+  .nav-list-item::before {  
+    transform: scaleX(0);
+    transform-origin: bottom left;
+  }
+  
+  .nav-list-item:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom right;
+  }
+  
+  .nav-list-item::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    inset: 0 0 0 0;
+    background: #aa73b1;
+    z-index: -1;
+    transition: transform .3s ease;
+  }
+  
+  .nav-list-item {
+    position: relative;
+  }
 }
 
 @media only screen and (min-width: 992px) {
