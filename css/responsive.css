@@ -15,6 +15,7 @@
     width: 200px;
   }
   .header-div {
+      position: fixed;
       flex-direction: row;
       padding: 15px 40px 15px 40px;
       align-items: center;
@@ -62,6 +63,20 @@
   .contact-div {
     padding: 3rem !important;
   }
+
+  .parent-of-nav-list {
+    display: block;
+  }
+
+  .scroll-menu2 {
+        position: fixed;
+        background: white;
+        box-shadow: 0 2px 4px -2px rgb(175 175 175 / 50%);
+    }
+
+    .scroll-menu2 a {
+        color: black !important;
+    }
 }
 
 @media only screen and (min-width: 992px) {

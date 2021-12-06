@@ -27,7 +27,7 @@ header {
 }
 
 .header-div {
-    position: fixed;
+    position: absolute;
     z-index: 9999;
     width: 100%;
     display: flex;
@@ -38,15 +38,10 @@ header {
     transition: all 1s ease;
 }
 
-.scroll-menu2 {
-    position: fixed;
-    background: white;
-    box-shadow: 0 2px 4px -2px rgb(175 175 175 / 50%);
+.parent-of-nav-list {
+    display: none;
 }
 
-.scroll-menu2 a {
-    color: black !important;
-}
 .menu-and-media {
     display: flex;
     justify-content: space-between;
@@ -103,6 +98,10 @@ header {
     font-size: min(14vw, 100px);
     margin-bottom:  0 !important;
     /*height: 62px;*/
+}
+
+.web-color {
+    font-weight: 600;
 }
 
 .m-h1-div {
@@ -280,7 +279,7 @@ svg {
 }
 
 .contact-div {
-    background-color: #7f81bf;
+    background-color: #aa73b1;
 }
 
 .call-btn {
