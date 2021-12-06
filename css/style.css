@@ -282,6 +282,10 @@ svg {
     background-color: #aa73b1;
 }
 
+.life {
+    color: #aa73b1;
+}
+
 .call-btn {
     justify-content: center;
 }
@@ -556,4 +560,37 @@ header {
 }
 .the-most img {
     max-width: 100%;
+}
+
+#show-project {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(25 26 25 / 59%);
+    display: none;
+    z-index: 99999;
+    place-content: center;
+}
+
+#show-project > div {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#show-project img {
+    width: 100%;
+}
+
+.project-close-div {
+    margin-bottom: 8px;
+}
+
+#show-project p {
+    font-size: 14px;
+    line-height: 2;
 }

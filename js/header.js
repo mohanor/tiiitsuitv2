@@ -22,3 +22,15 @@ close.addEventListener('click', () => {
     menu.style.display = "none";
 });
 
+
+const openProject = document.getElementsByClassName("open-project");
+const showProject = document.getElementById('show-project');
+const closeProject = document.getElementById('close-project');
+
+
+for (let i = 0; i < openProject.length; i++)
+{
+    openProject[i].addEventListener('click', () => showProject.style.display = "grid");
+}
+
+closeProject.addEventListener('click', () => showProject.style.display = "none");
