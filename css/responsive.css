@@ -77,9 +77,16 @@
     .scroll-menu2 a {
         color: black !important;
     }
+
+    #show-project > div {
+        width: 60%;
+    }
 }
 
 @media only screen and (min-width: 992px) {
+    #show-project > div {
+        width: 40%;
+    }
     /*header {
         padding-top: 30px;
     }*/

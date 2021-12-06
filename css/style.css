@@ -539,7 +539,7 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    font-size: max(20px, 4vw);
+    font-size: max(15px, 4vw);
     width: 100vw;
     text-align: center;
     color: #fff;
