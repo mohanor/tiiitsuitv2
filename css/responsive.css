@@ -7,19 +7,8 @@
       height: 231px;
   }
 
-  .open-div {
-      display: none;
-  }
-
   .logo {
     width: 200px;
-  }
-  .header-div {
-      position: fixed;
-      flex-direction: row;
-      padding: 15px 40px 15px 40px;
-      align-items: center;
-     
   }
 
   .nav-list {
@@ -64,10 +53,6 @@
     padding: 3rem !important;
   }
 
-  .parent-of-nav-list {
-    display: block;
-  }
-
   .scroll-menu2 {
         position: fixed;
         background: white;
@@ -81,9 +66,28 @@
     #show-project > div {
         width: 60%;
     }
+
+    #show-project > div {
+        text-align: right;
+    }
 }
 
 @media only screen and (min-width: 992px) {
+    .header-div {
+        position: fixed;
+        flex-direction: row;
+        padding: 15px 40px 15px 40px;
+        align-items: center;
+    }
+
+    .open-div {
+        display: none;
+    }
+
+    .parent-of-nav-list {
+        display: block;
+      }
+
     #show-project > div {
         width: 40%;
     }

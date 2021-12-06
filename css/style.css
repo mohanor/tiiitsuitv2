@@ -580,6 +580,7 @@ header {
     background-color: white;
     padding: 15px;
     border-radius: 5px;
+    text-align: center;
 }
 
 #show-project img {
@@ -587,7 +588,8 @@ header {
 }
 
 .project-close-div {
-    margin-bottom: 8px;
+    margin-bottom: 13px;
+    text-align: right;
 }
 
 #show-project p {
