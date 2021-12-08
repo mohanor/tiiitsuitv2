@@ -484,9 +484,9 @@ header {
    position: absolute;
     z-index: 100;
     width: 40px;
-    bottom: 0px;
+    bottom: 30px;
     height: 44px;
-    right: 30px;
+    right: 5px;
     transform: translateY(-50%);
     left: auto;
     color: #fff;
