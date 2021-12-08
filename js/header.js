@@ -2,18 +2,16 @@ const open = document.getElementById("open");
 const menu = document.getElementById("menu");
 const close = document.getElementById("close");
 
-const tl = new TimelineLite({paused: true})
+const tl = new TimelineLite({ paused: true })
 open.addEventListener('click', () => {
     menu.style.display = "block";
-
-    
     tl
-    .from("#close", 1, {
-        rotation: -90,
-        transformOrigin: "center center",
-        esae: Expo.easeOut
-    })
-    .from(".test-list", 1, {autoAlpha:0, y:50}, '-=1')
+        .from("#close", 1, {
+            rotation: -90,
+            transformOrigin: "center center",
+            esae: Expo.easeOut
+        })
+        .from(".test-list", 1, { autoAlpha: 0, y: 50 }, '-=1')
 
     tl.play();
 });
@@ -22,15 +20,20 @@ close.addEventListener('click', () => {
     menu.style.display = "none";
 });
 
-
 const openProject = document.getElementsByClassName("open-project");
 const showProject = document.getElementById('show-project');
 const closeProject = document.getElementById('close-project');
+const body = document.getElementById('body');
 
+for (let i = 0; i < openProject.length; i++) {
 
-for (let i = 0; i < openProject.length; i++)
-{
-    openProject[i].addEventListener('click', () => showProject.style.display = "grid");
+    openProject[i].addEventListener('click', () => {
+        showProject.style.display = "block"
+        body.style.overflow = "hidden"
+    });
 }
 
-closeProject.addEventListener('click', () => showProject.style.display = "none");
+closeProject.addEventListener('click', () => {
+    showProject.style.display = "none"
+    body.style.overflow = "auto"
+});

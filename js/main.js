@@ -94,81 +94,81 @@ else if (['ArrowLeft'].includes(e.key)) {
 });
 */
 
-      var $slider = $('.slideshow .slider'),
-        maxItems = $('.item', $slider).length,
-        dragging = false,
-        tracking,
-        rightTracking;
+var $slider = $('.slideshow .slider'),
+    maxItems = $('.item', $slider).length,
+    dragging = false,
+    tracking,
+    rightTracking;
 
-        $sliderRight = $('.slideshow').clone().addClass('slideshow-right').appendTo($('.split-slideshow'));
+$sliderRight = $('.slideshow').clone().addClass('slideshow-right').appendTo($('.split-slideshow'));
 
-        rightItems = $('.item', $sliderRight).toArray();
-        reverseItems = rightItems.reverse();
-        $('.slider', $sliderRight).html('');
-        for (i = 0; i < maxItems; i++) {
-            $(reverseItems[i]).appendTo($('.slider', $sliderRight));
-        }
+rightItems = $('.item', $sliderRight).toArray();
+reverseItems = rightItems.reverse();
+$('.slider', $sliderRight).html('');
+for (i = 0; i < maxItems; i++) {
+    $(reverseItems[i]).appendTo($('.slider', $sliderRight));
+}
 
-    $slider.addClass('slideshow-left');
-    $('.slideshow-left').slick({
-        vertical: true,
-        swipe: false,
-        verticalSwiping: true,
-        arrows: false,
-        infinite: true,
-        dots: true,
-        speed: 1000,
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+$slider.addClass('slideshow-left');
+$('.slideshow-left').slick({
+    vertical: true,
+    swipe: false,
+    arrows: true,
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+}).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
+        $('.slideshow-right .slider').slick('slickGoTo', -1);
+        $('.slideshow-text').slick('slickGoTo', maxItems);
+    } else if (currentSlide < nextSlide && currentSlide == 0 && nextSlide == maxItems - 1) {
+        $('.slideshow-right .slider').slick('slickGoTo', maxItems);
+        $('.slideshow-text').slick('slickGoTo', -1);
+    } else {
+        $('.slideshow-right .slider').slick('slickGoTo', maxItems - 1 - nextSlide);
+        $('.slideshow-text').slick('slickGoTo', nextSlide);
+    }
+}).on('mousedown touchstart', function () {
+    dragging = true;
+    tracking = $('.slick-track', $slider).css('transform');
+    tracking = parseInt(tracking.split(',')[5]);
+    rightTracking = $('.slideshow-right .slick-track').css('transform');
+    rightTracking = parseInt(rightTracking.split(',')[5]);
+}).on('mousemove touchmove', function () {
+    if (dragging) {
+        newTracking = $('.slideshow-left .slick-track').css('transform');
+        newTracking = parseInt(newTracking.split(',')[5]);
+        diffTracking = newTracking - tracking;
+        $('.slideshow-right .slick-track').css({ 'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')' });
+    }
+}).on('mouseleave touchend mouseup', function () {
+    dragging = false;
+});
 
-    }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-        if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
-            $('.slideshow-right .slider').slick('slickGoTo', -1);
-            $('.slideshow-text').slick('slickGoTo', maxItems);
-        } else if (currentSlide < nextSlide && currentSlide == 0 && nextSlide == maxItems - 1) {
-            $('.slideshow-right .slider').slick('slickGoTo', maxItems);
-            $('.slideshow-text').slick('slickGoTo', -1);
-        } else {
-            $('.slideshow-right .slider').slick('slickGoTo', maxItems - 1 - nextSlide);
-            $('.slideshow-text').slick('slickGoTo', nextSlide);
-        }
-    }).on('mousedown touchstart', function(){
-        dragging = true;
-        tracking = $('.slick-track', $slider).css('transform');
-        tracking = parseInt(tracking.split(',')[5]);
-        rightTracking = $('.slideshow-right .slick-track').css('transform');
-        rightTracking = parseInt(rightTracking.split(',')[5]);
-    }).on('mousemove touchmove', function(){
-        if (dragging) {
-            newTracking = $('.slideshow-left .slick-track').css('transform');
-            newTracking = parseInt(newTracking.split(',')[5]);
-            diffTracking = newTracking - tracking;
-            $('.slideshow-right .slick-track').css({'transform': 'matrix(1, 0, 0, 1, 0, ' + (rightTracking - diffTracking) + ')'});
-        }
-    }).on('mouseleave touchend mouseup', function(){
-        dragging = false;
-    });
-
-    $('.slideshow-right .slider').slick({
-            swipe: false,
-            vertical: true,
-            arrows: false,
-            infinite: true,
-            speed: 950,
-            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-            initialSlide: maxItems - 1
-        });
-    $('.slideshow-text').slick({
-            swipe: false,
-            vertical: true,
-            arrows: false,
-            infinite: true,
-            speed: 900,
-            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
-    });
+$('.slideshow-right .slider').slick({
+    swipe: false,
+    vertical: true,
+    arrows: true,
+    dots: false,
+    infinite: true,
+    speed: 950,
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+    initialSlide: maxItems - 1
+});
+$('.slideshow-text').slick({
+    swipe: false,
+    vertical: true,
+    arrows: true,
+    dots: false,
+    infinite: true,
+    speed: 900,
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+});
 
 
 function lerp(start, end, amount) {
-    return (1-amount)*start+amount*end
+    return (1 - amount) * start + amount * end
 }
 
 const cursor = document.createElement('div');
@@ -192,21 +192,21 @@ if ('ontouchstart' in window) {
     cursorF.style.display = 'none';
 }
 
-cursor.style.setProperty('--size', size+'px');
-cursorF.style.setProperty('--size', sizeF+'px');
+cursor.style.setProperty('--size', size + 'px');
+cursorF.style.setProperty('--size', sizeF + 'px');
 
-window.addEventListener('mousemove', function(e) {
+window.addEventListener('mousemove', function (e) {
     pageX = e.clientX;
     pageY = e.clientY;
-    cursor.style.left = e.clientX-size/2+'px';
-    cursor.style.top = e.clientY-size/2+'px';
+    cursor.style.left = e.clientX - size / 2 + 'px';
+    cursor.style.top = e.clientY - size / 2 + 'px';
 });
 
 function loop() {
     cursorX = lerp(cursorX, pageX, followSpeed);
     cursorY = lerp(cursorY, pageY, followSpeed);
-    cursorF.style.top = cursorY - sizeF/2 + 'px';
-    cursorF.style.left = cursorX - sizeF/2 + 'px';
+    cursorF.style.top = cursorY - sizeF / 2 + 'px';
+    cursorF.style.left = cursorX - sizeF / 2 + 'px';
     requestAnimationFrame(loop);
 }
 
@@ -217,19 +217,19 @@ let endY;
 let clicked = false;
 
 function mousedown(e) {
-    gsap.to(cursor, {scale: 4.5});
-    gsap.to(cursorF, {scale: .4});
+    gsap.to(cursor, { scale: 4.5 });
+    gsap.to(cursorF, { scale: .4 });
 
     clicked = true;
     startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
 }
 function mouseup(e) {
-    gsap.to(cursor, {scale: 1});
-    gsap.to(cursorF, {scale: 1});
+    gsap.to(cursor, { scale: 1 });
+    gsap.to(cursorF, { scale: 1 });
 
     endY = e.clientY || endY;
     if (clicked && startY && Math.abs(startY - endY) >= 40) {
-        go(!Math.min(0, startY - endY)?1:-1);
+        go(!Math.min(0, startY - endY) ? 1 : -1);
         clicked = false;
         startY = null;
         endY = null;

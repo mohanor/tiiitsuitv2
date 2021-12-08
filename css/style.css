@@ -34,7 +34,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
-    padding: 20px 40px;
+    padding: 20px 12px;
     transition: all 1s ease;
 }
 
@@ -376,7 +376,7 @@ svg {
     z-index: 99999999;
     overflow: hidden;
     display: none;
-    padding: 20px 40px;
+    padding: 20px 12px;
 }
 .mobile-list{
     position: absolute;
@@ -397,7 +397,7 @@ svg {
 
 .mobile-list a {
     text-decoration: none;
-    font-size: 30px;
+    font-size: 23px;
     color: black;
     font-weight: 600;
 }
@@ -413,7 +413,8 @@ svg {
     text-decoration: none;
     text-transform: uppercase;
     color: black;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 12px;
 }
 
 .media {
@@ -483,10 +484,10 @@ header {
    position: absolute;
     z-index: 100;
     width: 40px;
-    height: 30px;
     bottom: auto;
     top: 50%;
-    right: 20px;
+    height: 43px;
+    right: 0px;
     transform: translateY(-50%);
     left: auto;
     color: #fff;
@@ -539,15 +540,13 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    font-size: max(15px, 4vw);
+    font-size: max(20px, 4vw);
     width: 100vw;
     text-align: center;
     color: #fff;
     font-weight: 100;
     pointer-events: none;
-    text-transform: uppercase;
 }
-
 
 .the-most {
     position: fixed;
@@ -558,20 +557,23 @@ header {
     max-width: 200px;
     padding: 10px;
 }
+
 .the-most img {
     max-width: 100%;
 }
 
 #show-project {
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: rgb(25 26 25 / 59%);
     display: none;
     z-index: 99999;
     place-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #show-project > div {
