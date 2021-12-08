@@ -485,18 +485,32 @@ header {
     z-index: 100;
     width: 40px;
     bottom: auto;
-    top: 50%;
-    height: 43px;
+    bottom: -15px;
+    height: 44px;
     right: 0px;
+    right: 10px;
     transform: translateY(-50%);
     left: auto;
     color: #fff;
-    display: block;
+    display: flex;
+    align-items: center;
 }
+
+.slideshow .slick-dots li button:before {
+    width: 20px !important;
+}
+
+.slick-dots li button:before {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+}
+
 .slideshow .slick-dots li {
     display: block;
     width: 100%;
     height: auto;
+    margin-bottom: 6px;
 }
 .slideshow .slick-dots li button {
     position: relative;
