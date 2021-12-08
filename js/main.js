@@ -118,6 +118,8 @@ $('.slideshow-left').slick({
     infinite: true,
     speed: 1000,
     cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+    autoplay: true,
+    autoplaySpeed: 2500,
 }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
     if (currentSlide > nextSlide && nextSlide == 0 && currentSlide == maxItems - 1) {
         $('.slideshow-right .slider').slick('slickGoTo', -1);
@@ -154,7 +156,7 @@ $('.slideshow-right .slider').slick({
     infinite: true,
     speed: 950,
     cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-    initialSlide: maxItems - 1
+    initialSlide: maxItems - 1,
 });
 $('.slideshow-text').slick({
     swipe: false,
@@ -163,7 +165,7 @@ $('.slideshow-text').slick({
     dots: false,
     infinite: true,
     speed: 900,
-    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
 });
 
 
