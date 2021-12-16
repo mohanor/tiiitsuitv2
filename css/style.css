@@ -3,25 +3,12 @@
     margin: 0;
     font-family: 'Cairo', sans-serif;
 }
-/*
-.m-header {
-    background-color: #7f81bf;
-    background-image: url(../media/cover.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-}*/
 
 .toggle-menu {
     display: block;
     fill: white !important;
 }
-/*
-header {
-    padding-top: 30px;
-}
-*/
+
 .header-nav {
     display: none;
 }
@@ -200,7 +187,6 @@ header {
 .slick-section {
     background-color: #edf2f7;
     overflow: hidden;
-    /* background-color: #E5E5E5; */
 }
 
 .what-say {
@@ -244,7 +230,11 @@ footer ul li {
 }
 
 svg {
-    fill: #7f81bf;
+    fill: #ffffff;
+}
+
+.scroll-menu2 svg{
+    fill: #7f81bf !important;
 }
 
 .what-say .svg {
@@ -431,8 +421,6 @@ svg {
 }
 
 
-
-
 body {
     overflow-x: hidden;
 }
@@ -453,14 +441,16 @@ header {
     height: 100vh;
     overflow: hidden;
 }
+
 .slideshow .slider {
     width: 100vw;
-    /*height: 100vw;*/
     z-index: 2;
 }
+
 .slideshow .slider * {
     outline: none;
 }
+
 .slideshow .slider .item {
     height: 100vh;
     width: 100vw;
@@ -468,9 +458,11 @@ header {
     overflow: hidden;
     border: none;
 }
+
 .slideshow .slider .item .text {
     display: none;
 }
+
 .slideshow .slider .item img {
     min-width: 100%;
     min-height: 100%;
@@ -480,6 +472,7 @@ header {
     transform: translate(-50%, -50%);
     object-fit: cover;
 }
+
 .slideshow .slick-dots {
    position: absolute;
     z-index: 100;
@@ -510,12 +503,14 @@ header {
     height: auto;
     margin-bottom: 6px;
 }
+
 .slideshow .slick-dots li button {
     position: relative;
     width: 20px;
     height: 15px;
     text-align: center;
 }
+
 .slideshow .slick-dots li button:before {
     content: "";
     background: #fff;
@@ -531,6 +526,7 @@ header {
     transition: all 0.3s ease-in-out;
     opacity: 0.6;
 }
+
 .slideshow .slick-dots li.slick-active button:before {
     width: 40px;
     opacity: 1;
@@ -541,6 +537,7 @@ header {
     width: 50vw;
     pointer-events: none;
 }
+
 .slideshow.slideshow-right .slider {
     left: 0;
     position: absolute;
