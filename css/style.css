@@ -578,6 +578,7 @@ header {
 #show-project {
     position: fixed;
     background-color: rgb(25 26 25 / 59%);
+    background-color: #aa73b1;
     display: none;
     z-index: 99999;
     place-content: center;
@@ -585,17 +586,7 @@ header {
     height: 100vh;
     top: 0;
     overflow-y: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-#show-project > div {
-    width: 80%;
-    margin: 0 auto;
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
+    padding: 20px;
 }
 
 #show-project img {
@@ -610,4 +601,17 @@ header {
 #show-project p {
     font-size: 14px;
     line-height: 2;
+}
+
+#show-project .container .row img {
+    border-radius: 3px;
+}
+
+.our-work-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #7f81bf;
+    font-size: min(18vw,134px);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
 }

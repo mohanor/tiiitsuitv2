@@ -83,14 +83,6 @@
         color: black !important;
     }
 
-    #show-project > div {
-        width: 60%;
-    }
-
-    #show-project > div {
-        text-align: right;
-    }
-
     .slideshow .slick-dots {
         height: 40px;
         right: 30px;
@@ -121,12 +113,6 @@
         display: block;
       }
 
-    #show-project > div {
-        width: 40%;
-    }
-    /*header {
-        padding-top: 30px;
-    }*/
     .header-description {
         display: flex;
         flex-direction: column;
@@ -143,10 +129,6 @@
         width: 58%!important;
     }
 
-    /*.m-h1 {
-        height: 81px;
-        line-height: 1.4;
-    }*/
     .toggle-menu {
         display: none;
     }
