@@ -73,12 +73,6 @@
     padding: 3rem !important;
   }
 
-  .scroll-menu2 {
-        position: fixed;
-        background: white;
-        box-shadow: 0 2px 4px -2px rgb(175 175 175 / 50%);
-    }
-
     .scroll-menu2 a {
         color: black !important;
     }
@@ -98,6 +92,11 @@
 }
 
 @media only screen and (min-width: 992px) {
+    .scroll-menu2 {
+        position: fixed;
+        background: white;
+        box-shadow: 0 2px 4px -2px rgb(175 175 175 / 50%);
+    }
     .header-div {
         position: fixed;
         flex-direction: row;
