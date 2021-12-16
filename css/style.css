@@ -230,10 +230,14 @@ footer ul li {
 }
 
 svg {
+    fill: #7f81bf;
+}
+
+.logo {
     fill: #ffffff;
 }
 
-.scroll-menu2 svg{
+.scroll-menu2 .logo{
     fill: #7f81bf !important;
 }
 
