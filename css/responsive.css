@@ -27,6 +27,10 @@
       height: 231px;
   }
 
+  #show-project .col-md-6 {
+      height: auto;
+  }
+
   .logo {
     width: 200px;
   }
