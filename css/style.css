@@ -654,6 +654,6 @@ svg {
     direction: ltr;
 }
 
-.div.eapps-widget {
+div.eapps-widget {
     position: inherit !important;
 }

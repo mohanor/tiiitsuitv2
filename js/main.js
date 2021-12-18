@@ -172,7 +172,7 @@ $('.slideshow-text').slick({
 function lerp(start, end, amount) {
     return (1 - amount) * start + amount * end
 }
-
+/*
 const cursor = document.createElement('div');
 cursor.className = 'cursor';
 
@@ -236,4 +236,4 @@ function mouseup(e) {
         startY = null;
         endY = null;
     }
-}
+}*/
