@@ -4,6 +4,17 @@
     font-family: 'Cairo', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+header {
+    position: relative;
+    display: block;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .toggle-menu {
     display: block;
     fill: white !important;
@@ -123,7 +134,6 @@
 }
 
 .m-item {
-    /* width: 90%; */
     height: 100%;
     padding: 30px 20px;
     background-color: #FFFFFF;
@@ -150,7 +160,7 @@
 .h3-after::after {
     content: "";
     height: 2px;
-    background: #7f81bf;
+    background: #aa73b1;
     width: 35px;
     display: block;
     margin: 7px auto;
@@ -205,6 +215,7 @@ footer {
     background-color: #1A202C;
     color: white;
     padding: 30px 0 15px;
+    height: 788px;
 }
 
 footer a {
@@ -230,7 +241,7 @@ footer ul li {
 }
 
 svg {
-    fill: #7f81bf;
+    fill: #aa73b1;
 }
 
 .logo {
@@ -238,7 +249,7 @@ svg {
 }
 
 .scroll-menu2 .logo{
-    fill: #7f81bf !important;
+    fill: #aa73b1 !important;
 }
 
 .what-say .svg {
@@ -255,6 +266,7 @@ svg {
 
 .text-muted {
     color: #868e96!important;
+    line-height: 1.75;
 }
 
 .img-fl {
@@ -321,14 +333,25 @@ svg {
     text-align: center;
 }
 
+.our-project-img1 {
+    background: url(../media/cart/coverwebsite.jpeg);
+}
+
+.our-project-img2 {
+    background: url(../media/cart/lm39ol.jpg); 
+}
+
+.our-project-img3 {
+    background: url(../media/cart/v968-17d-02-mockupcscs.jpg);
+}
+
 .our-project-img {
     height: 200px;
     width: 100%;
-    background: url(https://images.pexels.com/photos/10161004/pexels-photo-10161004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     margin-bottom: 18px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .our-project-img h4 {
@@ -345,22 +368,6 @@ svg {
     text-align: center;
 }
 
-.our-project-img div {
-    height: 100%;
-    width: 100%;
-    background-color: #7f81bf;
-    display: grid;
-    place-content: center;
-    opacity: 0;
-    transition: .5s ease;
-    cursor: pointer;
-}
-
-.our-project-img div:hover {
-    opacity: 1;
-}
-
-
 .mobile-menu {
     background-color: white;
     position: fixed;
@@ -372,6 +379,7 @@ svg {
     display: none;
     padding: 20px 12px;
 }
+
 .mobile-list{
     position: absolute;
     top: 50%;
@@ -421,18 +429,6 @@ svg {
 }
 
 .content {
-    overflow: hidden;
-}
-
-
-body {
-    overflow-x: hidden;
-}
-
-header {
-    position: relative;
-    display: block;
-    height: 100vh;
     overflow: hidden;
 }
 
@@ -535,6 +531,7 @@ header {
     width: 40px;
     opacity: 1;
 }
+
 .slideshow.slideshow-right {
     left: 0;
     z-index: 1;
@@ -610,8 +607,50 @@ header {
 .our-work-title {
     text-align: center;
     margin-bottom: 30px;
-    color: #7f81bf;
+    color: #aa73b1;
     font-size: min(18vw,134px);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
+}
+
+.wp-link {
+    box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    outline: transparent;
+    background-color: rgb(255, 255, 255);
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 4px 24px 4px 16px;
+    max-width: 300px;
+    width: 261px;
+    height: 40px;
+    position: fixed;
+    bottom: 20px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wp-link a {
+    color: rgb(79, 206, 93);
+    text-decoration: none;
+}
+
+.whatsapp-icon {
+    fill:rgb(79, 206, 93) !important;
+    height: 25px;
+}
+
+.Header__AnswerTime-sc-5nh99s-3 div {
+    direction: ltr;
 }
